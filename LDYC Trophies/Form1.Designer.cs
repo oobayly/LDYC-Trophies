@@ -145,8 +145,8 @@
       this.gridTrophies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.gridTrophies.Size = new System.Drawing.Size(331, 515);
       this.gridTrophies.TabIndex = 1;
-      this.gridTrophies.Sorted += new System.EventHandler(this.gridTrophies_Sorted);
       this.gridTrophies.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gridTrophies_DataError);
+      this.gridTrophies.Sorted += new System.EventHandler(this.gridTrophies_Sorted);
       // 
       // fldNameDataGridViewTextBoxColumn
       // 
@@ -276,8 +276,8 @@
       this.gridWinners.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.gridWinners.Size = new System.Drawing.Size(540, 175);
       this.gridWinners.TabIndex = 1;
-      this.gridWinners.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridWinners_CellDoubleClick);
       this.gridWinners.CellContextMenuStripNeeded += new System.Windows.Forms.DataGridViewCellContextMenuStripNeededEventHandler(this.gridWinners_CellContextMenuStripNeeded);
+      this.gridWinners.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridWinners_CellDoubleClick);
       // 
       // fldYearDataGridViewTextBoxColumn
       // 
@@ -612,12 +612,12 @@
       this.mnuWinnersContext.Name = "mnuWinnersContext";
       this.mnuWinnersContext.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
       this.mnuWinnersContext.ShowImageMargin = false;
-      this.mnuWinnersContext.Size = new System.Drawing.Size(217, 26);
+      this.mnuWinnersContext.Size = new System.Drawing.Size(225, 26);
       // 
       // mnuTrophiesWonBySailNumber
       // 
       this.mnuTrophiesWonBySailNumber.Name = "mnuTrophiesWonBySailNumber";
-      this.mnuTrophiesWonBySailNumber.Size = new System.Drawing.Size(216, 22);
+      this.mnuTrophiesWonBySailNumber.Size = new System.Drawing.Size(224, 22);
       this.mnuTrophiesWonBySailNumber.Text = "Trophies won by this sail number";
       this.mnuTrophiesWonBySailNumber.Click += new System.EventHandler(this.mnuTrophiesWonBySailNumber_Click);
       // 
@@ -631,8 +631,8 @@
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "Form1";
       this.Text = "LDYC Trophies";
-      this.Load += new System.EventHandler(this.Form1_Load);
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+      this.Load += new System.EventHandler(this.Form1_Load);
       this.splitter.Panel1.ResumeLayout(false);
       this.splitter.Panel2.ResumeLayout(false);
       this.splitter.Panel2.PerformLayout();
