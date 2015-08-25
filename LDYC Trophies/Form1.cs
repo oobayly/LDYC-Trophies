@@ -31,6 +31,19 @@ namespace LDYC_Trophies {
         return ((tblTrophiesBindingSource.Current as DataRowView).Row as TrophyDataSet.tblTrophiesRow).fldTrophyID;
       }
     }
+
+    private string DatabaseLocation {
+      get {
+        string dataDir;
+        try {
+          dataDir = ApplicationDeployment.CurrentDeployment.DataDirectory;
+        } catch {
+          dataDir = AppDomain.CurrentDomain.BaseDirectory;
+        }
+
+        return tblClassesTableAdapter.Connection.Database.Replace("|DataDirectory|", dataDir);
+      }
+    }
     #endregion
 
     #region Constructors
@@ -66,7 +79,7 @@ namespace LDYC_Trophies {
         return false;
 
       try {
-        File.Copy(tblTrophiesTableAdapter.Connection.Database, dlgBackup.FileName, true);
+        File.Copy(DatabaseLocation, dlgBackup.FileName, true);
         return true;
 
       } catch (System.IO.IOException ex) {
@@ -553,7 +566,7 @@ namespace LDYC_Trophies {
         return;
 
       try {
-        File.Copy(dlgRestore.FileName, tblTrophiesTableAdapter.Connection.Database, true);
+        File.Copy(dlgRestore.FileName, DatabaseLocation, true);
         //using (SqlCeConnection trg = new SqlCeConnection(tblTrophiesTableAdapter.Connection.ConnectionString)) {
         //  trg.Open();
         //  using (SqlCeConnection src = new SqlCeConnection(string.Format("Data Source=\"{0}\"", dlgRestore.FileName))) {
