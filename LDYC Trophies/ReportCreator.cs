@@ -489,8 +489,16 @@ namespace LDYC_Trophies {
     }
 
     public FileInfo GenerateTrophyReport(int trophyID) {
+      string trophyName = "All";
+
+      if (trophyID != -1) {
+        var data = tblTrophiesTableAdapter.GetDataByTrophyID(trophyID);
+        trophyName = ((TrophyDataSet.tblTrophiesRow)data.Rows[0]).fldName;
+        trophyName = System.Text.RegularExpressions.Regex.Replace(trophyName, "[^A-Za-z0-9 ()-]", "");
+      }
+
       FileInfo file = new FileInfo(Path.Combine(
-        Path.GetTempPath(), string.Format("LDYC Trophy Report - {0:yyyy-MM-dd}.pdf", DateTime.Now)));
+        Path.GetTempPath(), string.Format("LDYC Trophy Report - {0} - {1:yyyy-MM-dd}.pdf", trophyName, DateTime.Now)));
 
       using (FileStream fs = file.OpenWrite()) {
         GenerateTrophyReport(fs, trophyID);
